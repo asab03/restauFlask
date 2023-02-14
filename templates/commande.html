@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Commande</title>
+</head>
+<body>
+
+<a href="{{ url_for ('page_index')}}"> Acceuil</a>
+<h1>Menu</h1>
+
+<form action="{{url_for('page_datacommande')}}" method="POST", id="form_1">
+<button type="submit" id='pizza' name="btn_pizza">PIZZA</button>
+<button type="submit" id='kebab' name="btn_kebab">KEBAB</button>
+<button type="submit" id='galette' name="btn_galette">GALETTE</button>
+</form>
+<div>
+
+<h1>Liste des commandes</h1>
+<div>
+{% if plats %}
+{% for plat in plats %}
+ <div> {{plat}} </div>
+</div>
+    {% endfor %}
+{% endif %}
+
+</div>
+</body>
+</html>

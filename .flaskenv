@@ -1,0 +1,2 @@
+FLASK_APP=restauflask.py
+FLASK_ENV=development

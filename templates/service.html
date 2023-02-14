@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Service</title>
+</head>
+<body>
+<a href="{{ url_for ('page_index')}}"> Acceuil</a>
+
+{% if aservir %}
+
+<h1> Prochain plat à servir</h1>
+
+<form action="{{ url_for ('page_dataservice') }}" method="POST" id="form_1">
+    <div>
+    <button type="submit" id="btn1" name="button_termine"> {{ aservir }} </button>
+    </div>
+    </form>
+{% else %}
+<h1>Rien a faire</h1>
+
+{% endif %}
+<div>
+<h1>Plats suivant à servir</h1>
+    <div>
+{% if enattente %}
+{% for plat in enattente %}
+<div>{{plat}} </div>
+    </div>
+{% endfor %}
+    {% endif %}
+    </div>
+</body>
+</html>

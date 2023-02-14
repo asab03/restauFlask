@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cuisine</title>
+</head>
+<body>
+<a href="{{ url_for ('page_index')}}"> Acceuil</a>
+{% if todo %}
+
+<h1>Plats a faire</h1>
+<form action="{{ url_for ('page_datacuisine') }}" method="POST" id="form_1">
+    <div>
+    <button type="submit" id="btn1" name="button_terminer"> {{ todo }} </button>
+    </div>
+    </form>
+
+{% else %}
+<h1>Rien a faire</h1>
+
+{% endif %}
+<div>
+<h1>Plats suivant</h1>
+    <div>
+{% if waiting %}
+{% for plat in waiting %}
+<div>{{plat}} </div>
+    </div>
+{% endfor %}
+    {% endif %}
+    </div>
+</body>
+</html>
